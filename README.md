@@ -1,0 +1,1 @@
+# lean_squad_exercise_1
