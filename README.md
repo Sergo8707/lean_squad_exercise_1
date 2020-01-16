@@ -52,3 +52,89 @@ LastName,
 Job
 }
 ```
+
+
+
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+
+
+# TASK SOLUTION
+
+## module API (a list of functions with parameters)
+```ruby
+class UserPermissionController
+	function addUserPermission(userId, permissionId)
+	function getUserPermissions(userId)
+	function deleteUserPermission(userId, permissionId)
+end
+
+class PermissionController
+	function createPermission(access, resource)
+	function getPermissions()
+	function getPermission(permissionId)
+	function updatePermission(permissionId, access, resource)
+	function destroyPermission(permissionId)
+end
+
+class RolePermissionController
+	function addRolePermission(roleId, permissionId)
+	function getRolePermissions(roleId)
+	function deleteRolePermission(roleId, permissionId)
+end
+
+class RoleController
+	function addUserRole(userId, roleId)
+	function getUserRoles(userId)
+	function deleteUserRole(userId, roleId)
+end
+
+class UserController
+	function createUser(name, [permissionIds], [roleIds])
+	function getUser(userId)
+	function getUsers()
+	function updateUser(userId, name)
+	function destroyUser(userId)
+	function permissionGrantedToUser(userId, permissionId)
+end
+
+class UserRoleController
+	function createRole(name, [permissionIds])
+	function getRole(roleId)
+	function getRoles()
+	function updateRole(roleId, name, [permissionIds])
+	function destroyRole(roleId)
+end
+```
+
+
+## Database
+![Database](screenshots/ScreenShot2020-01-16.png)
+
+
+
+
+##  Structure of the class
+```ruby
+class Permission
+	String access
+	String resource
+end
+
+class User 
+	String name
+	Array Permission
+	Array Role
+end
+
+class Role 
+	String name
+	Array Permission
+end
+```
+
